@@ -14,4 +14,21 @@ public class AppService {
         else name="we do not have this family member";
         return name;
     }
+    public AppObject getFavDishes(){
+        return new AppObject("Ramen");
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
