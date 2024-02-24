@@ -1,10 +1,13 @@
 pipeline {
     agent any
+    options {
+        timeout(time: 3, unit: 'SECONDS')
+    }
     stages {
         stage('Checkout') {
-        node {
-            checkout: 'https://github.com/jessicalai01/family-identification-app'
-            stash: source
+        steps {
+            echo 'Hello, World'
+            sh 'gradle -version'
             }
         }
         stage('Build') {
@@ -21,7 +24,13 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Deploying...'
+                sh 'java -version'
             }
+        }
+    }
+    post {
+        always {
+            echo 'I will always say Hello again!'
         }
     }
 }
