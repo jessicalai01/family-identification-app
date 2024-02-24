@@ -15,7 +15,6 @@ pipeline {
                 echo 'Building...'
                 sh './gradlew clean build'
                 echo 'Clean Build Successful'
-                sh
             }
         }
 
