@@ -18,8 +18,8 @@ pipeline {
         }
         stage('Docker Build') {
             steps {
-             echo 'Building Docker image...'¬
-                    sh 'docker build -t my-java-app .'
+                echo 'Building Docker image...'
+                sh 'docker build -t my-java-app .'
             }
         }
         stage('Docker Push') {
