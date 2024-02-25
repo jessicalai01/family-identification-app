@@ -10,11 +10,21 @@ pipeline {
             checkout scm
             }
         }
-        stage('Build') {
+        stage('Gradle Build') {
             steps {
-                echo 'Building...'
                 sh './gradlew clean build'
                 echo 'Clean Build Successful'
+            }
+        }
+        stage('Docker Build') {
+            steps {
+                echo 'Starting to build docker image'
+                sh 'docker build . -t jessicallai1/app'
+                echo 'Finished building. Starting to run docker image'
+                sh 'docker run jessicallai1/app'
+                echo 'Finished running. Starting to push docker image'
+                sh 'docker push jessicallai1/app'
+
             }
         }
 
