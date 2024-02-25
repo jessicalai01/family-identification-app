@@ -18,6 +18,7 @@ pipeline {
         }
         stage('Docker Build') {
             steps {
+                sh 'export PATH="$PATH:/Applications/Docker.app/Contents/Resources/bin/'
                 echo 'Starting to build docker image'
                 sh 'docker build . -t jessicallai1/app'
                 echo 'Finished building. Starting to run docker image'
